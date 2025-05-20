@@ -3,11 +3,10 @@ library(ggplot2)
 library(reshape2)
 library(gridExtra)
 
-# Définir une palette de couleurs pour chaque gène
-mycolors <- c("Lbr"   = "#c0372f",  # rouge
-              "Lmnb1" = "#6a8ab9",  # bleu
-              "Lmnb2" = "#5aaa46",  # vert
-              "Lmna"  = "#984EA3")  # violet
+mycolors <- c("Lbr"   = "#c0372f",  
+              "Lmnb1" = "#6a8ab9",  
+              "Lmnb2" = "#5aaa46",  
+              "Lmna"  = "#984EA3")  
 
 #########################################################################
 ########################### Gonadal development #########################
@@ -16,11 +15,9 @@ mycolors <- c("Lbr"   = "#c0372f",  # rouge
 RNAseq <- read.xlsx("TPM_values_Sangrithi.xlsx")
 Lamins <- RNAseq[which(RNAseq$gene %in% c("Lbr", "Lmnb1", "Lmnb2", "Lmna")),]
 
-# Extraction des données pour les cellules mâles en excluant XX et "female"
 Lamins_Male <- Lamins[, -which(grepl('XX', colnames(Lamins), fixed = TRUE))]
 Lamins_Male <- Lamins_Male[, -which(grepl('female', colnames(Lamins_Male), fixed = TRUE))]
 
-# Sélection des cellules somatiques
 Lamins_Male_Somatic <- Lamins_Male[, which(grepl('somatic', colnames(Lamins_Male), fixed = TRUE))]
 Lamins_Male_Somatic <- Lamins_Male_Somatic[, -which(grepl('non-gonadal', colnames(Lamins_Male_Somatic), fixed = TRUE))]
 colnames(Lamins_Male_Somatic) <- sub("\\_.*", "", colnames(Lamins_Male_Somatic))
@@ -48,7 +45,6 @@ p <- ggplot(Lamins_Male_Somatic, aes(x = variable, y = value, group = gene)) +
     legend.text  = element_text(size = 12)
   )
 
-# Sélection des cellules germinales
 Lamins_Male_germcell <- Lamins_Male[, which(grepl('germ', colnames(Lamins_Male), fixed = TRUE))]
 rownames(Lamins_Male_germcell) <- Lamins_Male$gene
 colnames(Lamins_Male_germcell) <- sub("\\_.*", "", colnames(Lamins_Male_germcell))
