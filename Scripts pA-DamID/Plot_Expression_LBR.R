@@ -1,3 +1,20 @@
+# -------------------------------------------------------------------------------
+# Script R - Analyse d'expression des lamines durant le développement des 
+# cellules germinales
+#
+# Ce script vise à visualiser les niveaux d’expression (TPM) des gènes codant 
+# pour les lamines (Lbr, Lmnb1, Lmnb2, Lmna) dans différents contextes cellulaires :
+#   - cellules somatiques au cours du développement embryonnaire
+#   - cellules germinales mâles aux mêmes stades
+#   - cellules souches embryonnaires (ES cells) cultivées en milieu Serum+LIF
+#
+# Les données proviennent de jeux transcriptomiques (xlsx, csv), (Hackett et al. 2017
+# Sangrithi et al. 2017)
+# et les figures sont générées avec ggplot2.
+#
+# Auteur : Tom Lanchec
+# -------------------------------------------------------------------------------
+
 library(openxlsx)
 library(ggplot2)
 library(reshape2)
