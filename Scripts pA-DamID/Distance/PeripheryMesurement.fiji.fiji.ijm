@@ -1,3 +1,17 @@
+// -----------------------------------------------------------------------------
+// Script Fiji/ImageJ - Analyse de l’intensité en fonction de la distance à la périphérie nucléaire
+//
+// Ce script permet de calculer, pour chaque noyau, l’intensité moyenne du signal
+// en fonction de la distance à la périphérie nucléaire.
+// Il utilise un Distance Map généré depuis le masque du noyau pour extraire
+// les valeurs de fluorescence à différentes distances.
+//
+// Résultat : un fichier CSV contenant, pour chaque noyau et chaque distance (en px),
+// la moyenne d’intensité du canal tracer (C2).
+//
+// Auteur : Tom Lanchec
+// -----------------------------------------------------------------------------
+
 originalTitle = getTitle();
 run("Split Channels");
 
