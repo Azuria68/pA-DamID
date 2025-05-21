@@ -12,10 +12,8 @@ for (i = 0; i < list.length; i++) {
         open(path);
         run("Analyze Regions", "area perimeter circularity");
 
-        // Enregistrer les résultats
         saveAs("Results", resultsDir + filename + "_results.csv");
         run("Close All");
-        // Nettoyer les résultats avant la prochaine boucle
         run("Clear Results");
     }
 }
