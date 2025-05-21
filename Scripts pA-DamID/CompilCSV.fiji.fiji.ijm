@@ -1,3 +1,16 @@
+// ----------------------------------------------------------------------
+// Script ImageJ/Fiji - Compilation automatique de résultats CSV
+//
+// Ce script permet de compiler automatiquement les fichiers CSV de résultats issus d'analyses ImageJ
+// présents dans un dossier sélectionné par l'utilisateur. 
+//
+// Il produit un fichier regroupant toutes les lignes 
+// de résultats des différents fichiers, en les annotant avec le nom de l’image 
+// associée (déduit du nom du fichier CSV).
+//
+// Auteur : Tom Lanchec
+// ----------------------------------------------------------------------
+
 csvDir = getDirectory("Sélectionne le dossier contenant les CSV de résultats");
 csvList = getFileList(csvDir);
 
