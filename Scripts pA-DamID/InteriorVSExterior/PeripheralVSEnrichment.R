@@ -1,3 +1,16 @@
+# ------------------------------------------------------------------------------
+# Script R - Analyse de l'enrichissement en périphérie nucléaire (IF / m6A LBR / Dam only)
+#
+# Ce script compare les intensités moyennes de signaux (m6A, IF, Dam seul)
+# entre la périphérie et l'intérieur des noyaux, pour chaque point de signal.
+# L'enrichissement est calculé comme log2(périphérie / intérieur).
+#
+# Une visualisation par boîte à moustaches + points est générée
+# pour comparer les enrichissements selon les conditions.
+#
+# Auteur : Tom Lanchec
+# ------------------------------------------------------------------------------
+
 library(tidyverse)
 library(ggbeeswarm)
 library(RColorBrewer)
