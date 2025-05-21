@@ -1,3 +1,14 @@
+// -----------------------------------------------------------------------------
+// Script Fiji/ImageJ - Quantification IF : signal en périphérie vs intérieur nucléaire
+//
+// Ce script permet de segmenter le noyau à partir du canal DAPI, d’en extraire
+// la périphérie (lamina) et l’intérieur, puis de quantifier l’intensité du signal 
+// dans ces deux compartiments.
+// Les résultats sont sauvegardés en CSV dans un dossier spécifié par l’utilisateur.
+//
+// Auteur : Tom Lanchec
+// -----------------------------------------------------------------------------
+
 originalTitle = getTitle();
 run("Split Channels");
 
