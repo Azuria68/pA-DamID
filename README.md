@@ -1,22 +1,22 @@
-🔬 Scripts d’analyse pA-DamID & imagerie
+Scripts d’analyse pA-DamID & imagerie
 
-⚠️ Ce jeu de scripts a été grandement inspiré par ceux développés par Tom van Schaik, puis modifié et adapté pour les besoins spécifiques de ce projet.
+Ce jeu de scripts a été grandement inspiré par ceux développés par Tom van Schaik, puis modifié et adapté pour les besoins spécifiques de ce projet.
 Scripts développés dans le cadre d’un projet sur le rôle de la lamina nucléaire sur la répression des éléments transposables dans les cellules germinales mâle de souris, combinant microscopie, quantification et analyses sous R.
 
-📁 Contenu du dépôt
-🧪 Scripts Fiji / ImageJ (quantification sur images m6A / IF)
+**Arborescence du dépôt 
 
-CompilCSV.fiji.ijm	Compile automatiquement plusieurs fichiers CSV produits par Fiji après mesure sur images (e.g. mesures d’intensité).
-MaskToCSV.fiji.ijm	Extrait les intensités à partir de masques binaires et sauvegarde les valeurs dans un CSV pour chaque noyau (dans le cas où nous utilisons Cellpose). 
-Enrichment.fiji.ijm	Mesure l’intensité du signal spécifiquement en périphérie nucléaire après érosion/dilatation.
-InteriorVSPeriphery.fiji.ijm	Compare l’intensité en périphérie et intérieur du noyau dans chaque cellule pour différents canaux.
+pA-DamID/
+│
+├── Scripts pA-DamID/             ← Scripts R pour analyses quantitatives
+│   ├── Enrichment                ← Analyse d'enrichissement
+│   ├── Gene_Expression           ← Analyse d'expression de gènes de la lamina (RNA-seq)
+│   ├── Tubule (Extra)            ← Analyse de l'air des tubules issus de cryosections
+│   └── Distance (Extra)          ← Analyse des distances signal/lamina
+│
+└── README.md                     ← Ce fichier
 
-📊 Scripts R (analyse quantitative et visualisation)
 
-PeripheralVSEnrichment.R	Compare le log2 d’enrichissement du signal entre la périphérie et l’intérieur pour différentes conditions (LBR-m6A, LBR-IF (contrôle positif), Dam seulement (contrôle négatif)), avec visualisation type beeswarm + boxplot.
-Plot_Expression_LBR.R	Trace l’expression des gènes de la lamina (Lbr, Lmnb1, Lmnb2, Lmna) dans les cellules germinales/somatiques au cours du développement gonadique (données RNA-seq TPM). Inclut aussi les ES cells en Serum+LIF.
-
-🗂 Organisation des données
+Organisation des données
 
     Les images (set minimisé dans ce répertoire pour test des scripts) sont analysées dans Fiji puis exportées sous forme de CSV contenant les mesures (intensité moyenne, coordonnée, etc.).
 
@@ -28,8 +28,8 @@ Plot_Expression_LBR.R	Trace l’expression des gènes de la lamina (Lbr, Lmnb1, 
 
         fichiers TPM_values_Sangrithi.xlsx et jh_129_genes_2i_serum.csv pour les profils d’expression
 
-⚙️ Dépendances
-🧬 R (packages nécessaires)
+Dépendances
+R (packages nécessaires)
 
     tidyverse
 
@@ -45,28 +45,28 @@ Plot_Expression_LBR.R	Trace l’expression des gènes de la lamina (Lbr, Lmnb1, 
 
     openxlsx
 
-🧫 Fiji (ImageJ)
+Fiji (ImageJ)
 
     Scripts .ijm compatibles avec Fiji avec Bio-Formats installé.
 
     Les macros utilisent la segmentation de noyaux et des masques binaires pour définir la périphérie ou l’intérieur.
 
-🔧 Exemple d'utilisation
+Exemple d'utilisation
 Dans Fiji :
 
 // Ouvrir l’image multi-canaux
-// Appliquer la macro : InteriorVSPeriphery.ijm
+// Appliquer la macro : Enrichment.ijm
 // Obtenir les CSV pour chaque cellule analysée
 
 Dans R :
 
 # Analyse enrichissement périphérie
-source("PeripheralVSEnrichment.R")
+source("EnrichmentPlot.R")
 
 # Expression des lamines
 source("Plot_Expression_LBR.R")
 
-✍️ Auteur
+Auteur : 
 
 Tom Lanchec
 Master 2 — Université de Strasbourg
