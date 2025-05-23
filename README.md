@@ -52,13 +52,13 @@ Dans Fiji :
 
 Dans R :
 
-# Analyse enrichissement périphérie
+Analyse enrichissement périphérie
 source("EnrichmentPlot.R")
 
-# Expression des lamines
+Expression des lamines
 source("Plot_Expression_LBR.R")
 
-# Calcul de l'air des tubules (Extra)
+Calcul de l'air des tubules (Extra)
 source("Area_Tubule.R")
 
 
